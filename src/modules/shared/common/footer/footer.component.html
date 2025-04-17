@@ -1,1 +1,45 @@
-<p>footer works!</p>
+<footer class="flex flex-col items-center border-t-2 border-gray-300">
+  <div
+    class="flex items-center w-4/5 border-b-2 justify-between border-gray-300"
+  >
+    <div class="w-2/5">
+      <div class="flex">
+        <img
+          src="/assets/images/logo.png"
+          alt="Quizzes Logo"
+          class="h-8 w-auto mr-2"
+        />
+        <span class="text-2xl">Quizzes</span>
+      </div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti omnis
+      officiis magnam animi id deleniti a iusto quam sequi perspiciatis.
+    </div>
+    <div class="flex w-2/5">
+      <div class="flex flex-col w-1/2 [&>a]:text-blue-400">
+        <p class="text-2xl">Menu</p>
+        <a>Home</a>
+        <a>Quizzes</a>
+        <a>About</a>
+        <a>Contact</a>
+      </div>
+      <div class="flex flex-col w-1/2 [&>a]:text-blue-400">
+        <p class="text-2xl">Contact</p>
+        <a>
+          <fa-icon [icon]="faEnvelope" class="text-black"></fa-icon>
+           longnguyenthanh2003&#64;gmail.com
+        </a>
+
+        <a>
+          <fa-icon [icon]="faPhone" class="text-black"></fa-icon>
+           +84 326 497 045
+        </a>
+
+        <a>
+          <fa-icon [icon]="faLocation" class="text-black"></fa-icon>
+           Nam Tu Liem, Hanoi
+        </a>
+      </div>
+    </div>
+  </div>
+  <p>{{ today | date : "MMMM yyyy" }} - Angular</p>
+</footer>
