@@ -12,8 +12,7 @@ import { FooterComponent } from './shared/common/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'QuizApp';
-  
+
   constructor(@Inject(QUIZ_SERVICE) private readonly quizService: QuizService) { }
-  
+
 }
