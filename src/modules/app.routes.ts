@@ -1,3 +1,4 @@
+import { managerRoutes } from './manager/manager.routes';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -9,15 +10,18 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
   },
   {
-    path: 'customer',
-    loadChildren: () => import('./customer/customer.routes').then((m) => m.customerRoutes),
+    path: '',
+    loadChildren: () =>
+      import('./customer/customer.routes').then((m) => m.customerRoutes),
   },
-  { path: 'manager', component: ManagerLayoutComponent },
+  {
+    path: 'manager',
+    loadChildren: () =>
+      import('./manager/manager.routes').then((m) => m.managerRoutes),
+  },
 ];
