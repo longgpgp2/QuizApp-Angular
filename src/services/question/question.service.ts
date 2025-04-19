@@ -11,7 +11,7 @@ import {
   QuestionEditViewModel,
   AnswerCreateViewModel,
   AnswerEditViewModel,
-} from '../../models/question/question.models';
+} from '../../models/question.models';
 
 @Injectable({
   providedIn: 'root',

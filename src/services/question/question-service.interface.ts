@@ -6,7 +6,7 @@ import {
   QuestionEditViewModel,
   AnswerCreateViewModel,
   AnswerEditViewModel,
-} from '../../models/question/question.models';
+} from '../../models/question.models';
 
 export default interface IQuestionService {
   getAll(): Observable<QuestionViewModel[]>;
