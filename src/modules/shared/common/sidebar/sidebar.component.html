@@ -1,0 +1,31 @@
+<div
+  class="min-h-screen flex flex-col border-r-2 border-gray-300 *:border-b-2 *:border-r *:p-2 *:border-gray-300 *:hover:bg-gray-300"
+>
+  <div>
+    <p class="font-fold text-2xl">Menu</p>
+  </div>
+  <div class="flex" [routerLink]="['/manager/quiz']" >
+    <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+      <fa-icon class="text-xl" [icon]="faPencil"></fa-icon>
+    </div>
+    <span class="pl-2">Quiz Management</span>
+  </div>
+  <div class="flex" [routerLink]="['/manager/question']">
+    <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+      <fa-icon class="text-xl" [icon]="faQuestion"></fa-icon>
+    </div>
+    <span class="pl-2">Question Management</span>
+  </div>
+  <div class="flex" [routerLink]="['/manager/user']">
+    <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+      <fa-icon class="text-xl" [icon]="faUser"></fa-icon>
+    </div>
+    <span class="pl-2">User Management</span>
+  </div>
+  <div class="flex" [routerLink]="['/manager/role']">
+    <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+      <fa-icon class="text-xl" [icon]="faUserCog"></fa-icon>
+    </div>
+    <span class="pl-2">Role Management</span>
+  </div>
+</div>

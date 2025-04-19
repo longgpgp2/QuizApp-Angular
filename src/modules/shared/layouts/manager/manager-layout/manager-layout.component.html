@@ -1,7 +1,15 @@
-<div class="min-h-screen flex flex-col justify-between">
-  <app-header class="border-b-2"></app-header>
-  <main class="w-full flex-1 overflow-auto ">
-    <router-outlet></router-outlet>
-  </main>
-  <app-footer class="border-b-2"></app-footer>
+<div class="min-h-screen flex flex-col">
+  <app-header class="border-b-2 border-gray-300"></app-header>
+
+  <div class="flex flex-1">
+    <app-sidebar></app-sidebar>
+
+    <div class="flex flex-col flex-1">
+      <main class="flex-1 overflow-auto w-full">
+        <router-outlet></router-outlet>
+      </main>
+
+      <app-footer class="w-full"></app-footer>
+    </div>
+  </div>
 </div>
