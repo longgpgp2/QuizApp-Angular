@@ -1,0 +1,93 @@
+<div class="overflow-x-auto rounded-lg">
+  <table class="w-full">
+    <thead class="bg-gray-50">
+      <tr>
+        <th
+          *ngFor="let col of columns"
+          class="text-left py-3 px-4 font-medium text-gray-700"
+        >
+          {{ col.name }}
+        </th>
+        <th class="text-center py-3 px-4 font-medium text-gray-700">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="data && data.length != 0; else emptyData">
+        <tr
+          *ngFor="let item of data; let i = index"
+          [ngClass]="i%2==0? 'bg-gray-200': ''"
+          class="border-b hover:bg-gray-300"
+        >
+          <td *ngFor="let col of columns; let j = index" class="py-3 px-4">
+            {{ j != 0 ? item[col.value] : i + 1 }}
+          </td>
+          <td class="py-3 px-4">
+            <div class="flex justify-center space-x-2">
+              <fa-icon
+                [icon]="faEye"
+                class="cursor-pointer text-blue-600"
+                (click)="onViewDetails.emit(item.id)"
+              ></fa-icon>
+              <fa-icon
+                [icon]="faPenToSquare"
+                class="cursor-pointer text-blue-600"
+                *ngIf="isShowEditAction"
+                (click)="onEdit.emit(item.id)"
+              ></fa-icon>
+              <fa-icon
+                [icon]="faTrash"
+                class="cursor-pointer text-red-600"
+                *ngIf="isShowDeleteAction"
+                (click)="confirmDelete(item.id)"
+              ></fa-icon>
+            </div>
+          </td>
+
+          <!-- Modal Xác Nhận Xóa -->
+          <div
+            *ngIf="isModalOpen"
+            class="fixed inset-0 flex items-center justify-center bg-opacity-60 backdrop-blur-sm transition-opacity duration-300"
+          >
+            <!-- Modal Box -->
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg w-96 transform transition-all duration-300 scale-95"
+              [ngClass]="{
+                'scale-100 opacity-100': isModalOpen,
+                'scale-95 opacity-0': !isModalOpen
+              }"
+            >
+              <h2 class="text-lg font-semibold text-gray-800">
+                Confirm Delete
+              </h2>
+              <p class="mt-2 text-gray-600">
+                Are you sure you want to delete this record?
+              </p>
+
+              <div class="mt-4 flex justify-end space-x-2">
+                <button
+                  (click)="closeModal()"
+                  class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  (click)="deleteRecord()"
+                  class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 cursor-pointer"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </tr>
+      </ng-container>
+      <ng-template #emptyData>
+        <tr class="border-b hover:bg-gray-50">
+          <td [attr.colspan]="calculateColspan()" class="text-center py-3 px-4">
+            No data found
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

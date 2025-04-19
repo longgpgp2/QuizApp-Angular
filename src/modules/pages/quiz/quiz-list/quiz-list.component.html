@@ -1,1 +1,9 @@
-<p>quiz-list works!</p>
+<app-table
+  [isShowNumber]="true"
+  [columns]="columns"
+  [data]="data"
+  (onViewDetails)="viewDetails($event)"
+  (onEdit)="edit($event)"
+  [isShowDeleteAction]="false"
+>
+</app-table>
